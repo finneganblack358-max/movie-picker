@@ -8,6 +8,24 @@ api = Blueprint("api", __name__)
 def index():
     return render_template("index.html")
 
+@api.route("/catagories")
+def catagories():
+    return render_template("catagories.html")
+
+@api.route("/trending")
+def trending():
+    api_key = current_app.config["TMDB_API_KEY"]
+    url = f"https://api.themoviedb.org/3/trending/movie/day?api_key={api_key}"
+    response = requests.get(url)
+
+    if response.status_code != 200:
+        return render_template("trending.html", movies=[], error="Could not fetch data")
+    
+    data = response.json()
+    movies = data.get("results", [])
+
+    return render_template("trending.html", movies=movies)
+
 @api.route("/movies", methods=["GET"])
 def get_movies():
     query = request.args.get("query", "Inception")
