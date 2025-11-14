@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Picker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <div class="sidebar">
+    <div class="logo">
+      <h2>Movie Picker</h2>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="{{ url_for('api.catagories')}}">
+          <i class='bx bx-user'></i>
+          <span class="link-name">Catagories</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div>
+        {% for movie in movies %}
+            <div style="margin-bottom: 20px;">
+                <h2>{{ movie.title }}</h2>
+                <p>{{ movie.overview }}</p>
+
+                {% if movie.poster_path %}
+                    <img 
+                        src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" 
+                        alt="{{ movie.title }}"
+                    >
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+    <script src="{{ url_for('static', filename='script.js')}}"></script>
+</body>
+</html>
