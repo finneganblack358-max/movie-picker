@@ -10,6 +10,8 @@ def create_app():
     db.init_app(app)
     app.register_blueprint(api)
 
+    print(app.url_map)
+
     return app
 
 app = create_app()

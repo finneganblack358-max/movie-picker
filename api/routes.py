@@ -8,7 +8,7 @@ api = Blueprint("api", __name__)
 def index():
     return render_template("index.html")
 
-@api.route("/catagories")
+@api.route('/catagories')
 def catagories():
     return render_template("catagories.html")
 
