@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Picker</title>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <!--<link href="../static/style.css" rel="stylesheet">-->
+</head>
+<body>
+    <div class="sidebar">
+      <div class="logo">
+        <h2>Movie Picker</h2>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="{{ url_for('api.genres') }}">
+            <i class="bx bx-grid-alt"></i>
+            <span class="link-name">Genres</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ url_for('api.trending') }}">
+            <i class='bx bx-star'></i>
+            <span class="link-name">Trending</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <h1><i class="bx bx-home"></i> Home</h1>
+      <hr class="hr-style">
+      <h2>Welcome!</h2>
+      <p style="margin-top: 15px; width: 500px;">
+        This site help users, like you, to find movies to enjoy with family, friends, or even by yourself. 
+      </p>
+      <h4 style="margin-top: 3px;">To get started click on Genres in the sidebar to the left.</h4>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!--<script src="../static/script.js"></script>-->
+</body>
+</html>
