@@ -28,7 +28,22 @@
       </ul>
     </div>
     <div class="main-content">
-        
+      <h1>Trending Movies</h1>
+      <hr class="hr-style">
+      {% for movie in movies %}
+        <div style="margin-bottom: 50px;">
+              <div>
+                  <h2>{{ movie.title }}</h2>
+                  <p><em>{{ movie.release_date }}</em></p>
+                  <p>{{ movie.overview }}</p>
+              </div>
+              {% if movie.poster_path %}
+                  <div>
+                      <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }} Poster">
+                  </div>
+              {% endif %}
+        </div>
+      {% endfor %}
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
