@@ -25,16 +25,32 @@
             <span class="link-name">Trending</span>
           </a>
         </li>
+        <li>
+          <a href="{{ url_for('api.for_you') }}">
+            <i class='bx bx-user'></i>
+            <span class="link-name">For You</span>
+          </a>
+        </li>
       </ul>
     </div>
     <div class="main-content">
       <h1><i class="bx bx-home"></i> Home</h1>
       <hr class="hr-style">
       <h2>Welcome!</h2>
-      <p style="margin-top: 15px; width: 500px;">
-        This site help users, like you, to find movies to enjoy with family, friends, or even by yourself. 
+      <p style="margin-top: 15px; margin-bottom: 15px;">
+        Welcome to <strong>Movie Picker</strong>, a simple and intuitive place where you can quickly discover films suited for family nights, friendly hangouts, or solo evenings when you just want something enjoyable and easy to watch. 
+        This application is designed to cut through the endless scrolling experience by helping you focus on what actually matters: finding a movie that matches your mood, your taste, and the moment you’re in.
       </p>
-      <h4 style="margin-top: 3px;">To get started click on Genres in the sidebar to the left.</h4>
+      <p style="margin-top: 3px; margin-bottom: 15px;">
+        As you navigate the interface, you’ll find that everything is organized to keep the experience clear, minimal, and easy on the eyes, allowing you to move from browsing to selecting without unnecessary clutter slowing you down. 
+        The layout is built to guide you naturally, using straightforward wording and a responsive structure so you always know where you are and what to do next as you explore new titles.
+      </p>
+      <p style="margin-top: 3px; margin-bottom: 3px;">
+        To begin your search, look at the sidebar on the left and select Genres, which will open a tailored collection of categories designed to help you filter movies with accuracy and confidence, giving you a curated starting point that leads into smooth, detailed pages for each genre. 
+        Enjoy the process, enjoy the discovery, and let the interface carry you from curiosity to your next great movie.</p>
+      <hr class="hr-style">
+      <h2>About us!</h2>
+      <p style="margin-top: 3px; margin-bottom: 3px;"></p>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

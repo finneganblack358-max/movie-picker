@@ -6,6 +6,7 @@
     <title>Genres</title>
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='genres.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
@@ -20,15 +21,66 @@
           </a>
         </li>
         <li>
-          <a href="{{ url_for('api.trending') }}">
+          <a href="{{ url_for('api.trending_movies') }}">
             <i class='bx bx-star'></i>
             <span class="link-name">Trending</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ url_for('api.for_you') }}">
+            <i class='bx bx-user'></i>
+            <span class="link-name">For You</span>
           </a>
         </li>
       </ul>
     </div>
     <div class="main-content">
-
+      <h1><i class="bx bx-grid-alt"></i> Pick Your Genres</h1>
+      <hr class="hr-style">
+      <div class="category-checkbox">
+        <input type="checkbox" id="action" name="category" value="Action">
+        <label for="action">Action</label>
+      </div>
+      <p class="description-p">Action movies are a film genre characterized by high-octane, fast-paced sequences that emphasize physical feats, elaborate stunts, and thrilling confrontations, often involving car chases, shootouts, and hand-to-hand combat.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="animation" name="category" value="Animation">
+        <label for="animation">Animation</label>
+      </div>
+      <p class="description-p">An animated movie is a motion picture created by making an illusion of movement through a series of still images, such as drawings or computer-generated graphics, shown in rapid succession.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="comedy" name="category" value="Comedy">
+        <label for="comedy">Comedy</label>
+      </div>
+      <p class="description-p">The comedy film is a film genre that emphasizes humor.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="crime" name="category" value="Crime">
+        <label for="crime">Crime</label>
+      </div>
+      <p class="description-p">Crime movies are a broad genre that revolves around criminal activities, law enforcement, and investigation, exploring the motives, methods, and consequences of crime.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="documentary" name="category" value="Documentary">
+        <label for="documentary">Documentary</label>
+      </div>
+      <p class="description-p">Documentary movies are nonfiction films that document real life for educational, informational, or entertainment purposes, using a combination of real footage, interviews, and archival materials to present a story, perspective, or argument.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="drama" name="category" value="Drama">
+        <label for="drama">Drama</label>
+      </div>
+      <p class="description-p">Drama movies are a genre of film that tells a serious story, focusing on compelling characters and emotional conflicts rather than humor.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="fantasy" name="category" value="Fantasy">
+        <label for="fantasy">Fantasy</label>
+      </div>
+      <p class="description-p">Fantasy movies are a genre of film that feature magical or supernatural elements, often set in imaginary worlds distinct from our own.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="history" name="category" value="History">
+        <label for="history">History</label>
+      </div>
+      <p class="description-p">History movies are a genre that dramatizes or recounts past events and historical periods, featuring a wide range of styles like historical dramas, biopics, and epics</p>
+      <div class="button-container">
+        <button class="button-style" id="saveGenres">Save Genres</button>
+      </div>
     </div>
+    <script src="{{ url_for('static', filename='genres.js') }}"></script>
 </body>
 </html>

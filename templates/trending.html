@@ -25,6 +25,12 @@
             <span class="link-name">Genres</span>
           </a>
         </li>
+        <li>
+          <a href="{{ url_for('api.for_you') }}">
+            <i class='bx bx-user'></i>
+            <span class="link-name">For You</span>
+          </a>
+        </li>
       </ul>
     </div>
     <div class="main-content">
@@ -33,10 +39,10 @@
       {% for movie in movies %}
         <div style="margin-bottom: 50px;">
               <div>
-                  <h2>{{ movie.title }}</h2>
-                  <p><em>{{ movie.release_date }}</em></p>
-                  <p>{{ movie.overview }}</p>
-              </div>
+                  <h2 style="margin-bottom: 15px;">{{ movie.title }}</h2>
+                  <p style="margin-bottom: 15px;"><em>Date: {{ movie.release_date }}</em></p>
+                  <p style="margin-bottom: 15px;"><strong>Overview</strong>: {{ movie.overview }}</p>
+              </div style="margin-bottom: 30px;">
               {% if movie.poster_path %}
                   <div>
                       <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }} Poster">

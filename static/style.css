@@ -72,3 +72,37 @@ body {
   margin: 20px 0;
   border-radius: 2px;
 }
+
+.link-style {
+  display: flex;
+  width: 75px;
+  align-items: center;
+  text-align: center;
+  width: 90px;
+  padding: 0 10px 0 10px;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s, color 0.3s;
+  border-radius: 8px;
+}
+
+.link-style:hover {
+  background: rgba(255, 255, 255, 0.1)
+}
+
+.button-style {
+  display: flex;
+  border-style: solid;
+  border-color: #900404;
+  align-items: center;
+  text-decoration: none;
+  background-color: #1d1b1b;
+  color: white;
+  transition: opacity 0.3s, color 0.3s;
+  border-radius: 8px;
+  padding: 5px 8px;
+}
+
+.button-style:hover {
+  opacity: 0.7;
+}
