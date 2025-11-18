@@ -40,14 +40,23 @@ def for_you():
         return redirect(url_for('api.genres'))
     
     GENRE_MAP = {
-        "Action": 28,
-        "Animation": 16,
-        "Comedy": 35,
-        "Crime": 80,
-        "Documentary": 99,
-        "Drama": 18,
-        "Fantasy": 14,
-        "History": 36
+    "Action": 28,
+    "Animation": 16,
+    "Comedy": 35,
+    "Crime": 80,
+    "Documentary": 99,
+    "Drama": 18,
+    "Fantasy": 14,
+    "History": 36,
+    "Horror": 27,
+    "Music": 10402,
+    "Mystery": 9648,
+    "Romance": 10749,
+    "Science Fiction": 878,
+    "TV Movie": 10770,
+    "Thriller": 53,
+    "War": 10752,
+    "Western": 37
     }
 
     genre_ids = [str(GENRE_MAP[g]) for g in genres if g in GENRE_MAP]

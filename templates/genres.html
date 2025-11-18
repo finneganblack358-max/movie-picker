@@ -77,9 +77,52 @@
         <label for="history">History</label>
       </div>
       <p class="description-p">History movies are a genre that dramatizes or recounts past events and historical periods, featuring a wide range of styles like historical dramas, biopics, and epics</p>
-      <div class="button-container">
-        <button class="button-style" id="saveGenres">Save Genres</button>
+      <div class="category-checkbox">
+        <input type="checkbox" id="horror" name="category" value="Horror">
+        <label for="horror">Horror</label>
       </div>
+      <p class="description-p">A horror movie is a genre designed to elicit fear, shock, and dread in an audience, often by creating a sense of unease or suspense.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="music" name="category" value="Music">
+        <label for="music">Music</label>
+      </div>
+      <p class="description-p">Music movies can refer to two distinct genres: musical films where characters sing and dance as part of the narrative, or films about music, which focus on musicians, bands, or the role of music itself in the plot.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="mystery" name="category" value="Mystery">
+        <label for="mystery">Mystery</label>
+      </div>
+      <p class="description-p">Mystery movies center on a crime or puzzle that a detective or amateur sleuth must solve through investigation, gathering clues, and eliminating suspects.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="romance" name="category" value="Romance">
+        <label for="romance">Romance</label>
+      </div>
+      <p class="description-p">Romance movies are a film genre where the central plot focuses on the development of a romantic relationship between the main characters.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="science fiction" name="category" value="Science Fiction">
+        <label for="science fiction">Science Fiction</label>
+      </div>
+      <p class="description-p">Science fiction movies use speculative, science-based concepts to tell stories, often featuring futuristic technology, space travel, extraterrestrial life, and alternate realities.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="tv movie" name="category" value="TV Movie">
+        <label for="tv movie">TV Movie</label>
+      </div>
+      <p class="description-p">A TV movie is a feature-length film produced specifically for television broadcast or distribution, unlike a theatrical movie made for theaters.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="thriller" name="category" value="Thriller">
+        <label for="thriller">Thriller</label>
+      </div>
+      <p class="description-p">A thriller is a genre of film characterized by suspense, excitement, and a sense of anxiety or fear, driven by action-packed plots and frequent twists.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="war" name="category" value="War">
+        <label for="war">War</label>
+      </div>
+      <p class="description-p">War movies are a genre that depict conflicts and battles, focusing on the experiences of soldiers, civilians, and society during wartime.</p>
+      <div class="category-checkbox">
+        <input type="checkbox" id="western" name="category" value="Western">
+        <label for="western">Western</label>
+      </div>
+      <p class="description-p">Western movies are a genre set primarily in the American West between the 1850s and late 19th century, focusing on conflicts during the settlement of the frontier.</p>
+      <button class="button-style" id="saveGenres">Save Genres</button>
     </div>
     <script src="{{ url_for('static', filename='genres.js') }}"></script>
 </body>
