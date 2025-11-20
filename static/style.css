@@ -59,6 +59,26 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
+/* Footer */
+.footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 150px;
+  background-color: #302f2f;
+  padding: 15px 20px;
+  text-align: center;
+  gap: 8px;
+}
+
+
+.footer a {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
 /* Main content */
 .main-content {
   flex: 1;
@@ -105,4 +125,13 @@ body {
 
 .button-style:hover {
   opacity: 0.7;
+}
+
+.resize {
+  cursor: default;
+  transition: font-size 0.3s;
+}
+
+.resize:hover {
+  font-size: 50px;
 }

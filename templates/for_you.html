@@ -3,53 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You</title>
+    <title>For You - Movie Picker</title>
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
-      <div class="logo">
-        <h2>Movie Picker</h2>
-      </div>
-      <ul class="nav-links">
-        <li>
-          <a href="{{ url_for('api.index') }}">
-            <i class="bx bx-home"></i>
-            <span class="link-name">Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url_for('api.genres') }}">
-            <i class="bx bx-grid-alt"></i>
-            <span class="link-name">Genres</span>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url_for('api.trending_movies') }}">
-            <i class='bx bx-star'></i>
-            <span class="link-name">Trending</span>
-          </a>
-        </li>
-      </ul>
+        <div class="logo">
+            <h2>Movie Picker</h2>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="{{ url_for('api.index') }}">
+                    <i class="bx bx-home"></i>
+                    <span class="link-name">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('api.genres') }}">
+                    <i class="bx bx-grid-alt"></i>
+                    <span class="link-name">Genres</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('api.trending_movies') }}">
+                    <i class='bx bx-star'></i>
+                    <span class="link-name">Trending</span>
+                </a>
+            </li>
+        </ul>
     </div>
-    <div class="main-content">
-      <h1><i class="bx bx-user"></i> For You</h1>
-      <hr class="hr-style">
 
-      <div class="movies-container">
+    <div class="main-content">
+        <h1><i class="bx bx-user"></i> For You</h1>
+        <hr class="hr-style">
+
         {% if movies %}
-          {% for movie in movies %}
-            <div class="movie-card">
-              <h2 style="margin-bottom: 15px;">{{ movie.title }}</h2>
-              <p style="margin-bottom: 15px;"><strong>Overview</strong>: {{ movie.overview }}</p>
-              <img style="margin-bottom: 30px;" src="https://image.tmdb.org/t/p/w200{{ movie.poster_path }}" alt="{{ movie.title }} poster">
-            </div>
-          {% endfor %}
+            {% for movie in movies %}
+                <div class="movie-card" style="margin-bottom: 30px;">
+                    <h2>{{ movie.title }}</h2>
+                    <p><strong>Overview</strong>: {{ movie.overview }}</p>
+                    {% if movie.poster_path %}
+                        <img src="https://image.tmdb.org/t/p/w200{{ movie.poster_path }}" alt="{{ movie.title }} poster">
+                    {% else %}
+                        <p>No poster available</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
         {% else %}
-          <p>No movies found for your selected genres.</p>
+            <p>No movies found for your selected genres.</p>
         {% endif %}
-      </div>
     </div>
 </body>
 </html>

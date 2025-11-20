@@ -34,96 +34,45 @@
         </li>
       </ul>
     </div>
+
     <div class="main-content">
-      <h1><i class="bx bx-grid-alt"></i> Pick Your Genres</h1>
+      <h1 class="resize"><i class="bx bx-grid-alt"></i> Pick Your Genres</h1>
       <hr class="hr-style">
-      <div class="category-checkbox">
-        <input type="checkbox" id="action" name="category" value="Action">
-        <label for="action">Action</label>
-      </div>
-      <p class="description-p">Action movies are a film genre characterized by high-octane, fast-paced sequences that emphasize physical feats, elaborate stunts, and thrilling confrontations, often involving car chases, shootouts, and hand-to-hand combat.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="animation" name="category" value="Animation">
-        <label for="animation">Animation</label>
-      </div>
-      <p class="description-p">An animated movie is a motion picture created by making an illusion of movement through a series of still images, such as drawings or computer-generated graphics, shown in rapid succession.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="comedy" name="category" value="Comedy">
-        <label for="comedy">Comedy</label>
-      </div>
-      <p class="description-p">The comedy film is a film genre that emphasizes humor.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="crime" name="category" value="Crime">
-        <label for="crime">Crime</label>
-      </div>
-      <p class="description-p">Crime movies are a broad genre that revolves around criminal activities, law enforcement, and investigation, exploring the motives, methods, and consequences of crime.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="documentary" name="category" value="Documentary">
-        <label for="documentary">Documentary</label>
-      </div>
-      <p class="description-p">Documentary movies are nonfiction films that document real life for educational, informational, or entertainment purposes, using a combination of real footage, interviews, and archival materials to present a story, perspective, or argument.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="drama" name="category" value="Drama">
-        <label for="drama">Drama</label>
-      </div>
-      <p class="description-p">Drama movies are a genre of film that tells a serious story, focusing on compelling characters and emotional conflicts rather than humor.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="fantasy" name="category" value="Fantasy">
-        <label for="fantasy">Fantasy</label>
-      </div>
-      <p class="description-p">Fantasy movies are a genre of film that feature magical or supernatural elements, often set in imaginary worlds distinct from our own.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="history" name="category" value="History">
-        <label for="history">History</label>
-      </div>
-      <p class="description-p">History movies are a genre that dramatizes or recounts past events and historical periods, featuring a wide range of styles like historical dramas, biopics, and epics</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="horror" name="category" value="Horror">
-        <label for="horror">Horror</label>
-      </div>
-      <p class="description-p">A horror movie is a genre designed to elicit fear, shock, and dread in an audience, often by creating a sense of unease or suspense.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="music" name="category" value="Music">
-        <label for="music">Music</label>
-      </div>
-      <p class="description-p">Music movies can refer to two distinct genres: musical films where characters sing and dance as part of the narrative, or films about music, which focus on musicians, bands, or the role of music itself in the plot.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="mystery" name="category" value="Mystery">
-        <label for="mystery">Mystery</label>
-      </div>
-      <p class="description-p">Mystery movies center on a crime or puzzle that a detective or amateur sleuth must solve through investigation, gathering clues, and eliminating suspects.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="romance" name="category" value="Romance">
-        <label for="romance">Romance</label>
-      </div>
-      <p class="description-p">Romance movies are a film genre where the central plot focuses on the development of a romantic relationship between the main characters.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="science fiction" name="category" value="Science Fiction">
-        <label for="science fiction">Science Fiction</label>
-      </div>
-      <p class="description-p">Science fiction movies use speculative, science-based concepts to tell stories, often featuring futuristic technology, space travel, extraterrestrial life, and alternate realities.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="tv movie" name="category" value="TV Movie">
-        <label for="tv movie">TV Movie</label>
-      </div>
-      <p class="description-p">A TV movie is a feature-length film produced specifically for television broadcast or distribution, unlike a theatrical movie made for theaters.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="thriller" name="category" value="Thriller">
-        <label for="thriller">Thriller</label>
-      </div>
-      <p class="description-p">A thriller is a genre of film characterized by suspense, excitement, and a sense of anxiety or fear, driven by action-packed plots and frequent twists.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="war" name="category" value="War">
-        <label for="war">War</label>
-      </div>
-      <p class="description-p">War movies are a genre that depict conflicts and battles, focusing on the experiences of soldiers, civilians, and society during wartime.</p>
-      <div class="category-checkbox">
-        <input type="checkbox" id="western" name="category" value="Western">
-        <label for="western">Western</label>
-      </div>
-      <p class="description-p">Western movies are a genre set primarily in the American West between the 1850s and late 19th century, focusing on conflicts during the settlement of the frontier.</p>
+
+      {% set genres = [
+          {'id':'action','label':'Action','desc':'Action movies are high-octane, fast-paced sequences with stunts, chases, and thrilling confrontations.'},
+          {'id':'animation','label':'Animation','desc':'Animated movies create an illusion of movement through drawings or computer graphics.'},
+          {'id':'comedy','label':'Comedy','desc':'The comedy film emphasizes humor.'},
+          {'id':'crime','label':'Crime','desc':'Crime movies revolve around criminal activities, law enforcement, and investigations.'},
+          {'id':'documentary','label':'Documentary','desc':'Documentaries document real life for education, information, or entertainment.'},
+          {'id':'drama','label':'Drama','desc':'Drama movies tell serious stories focusing on characters and emotions.'},
+          {'id':'fantasy','label':'Fantasy','desc':'Fantasy movies feature magical or supernatural elements in imaginary worlds.'},
+          {'id':'family','label':'Family','desc':'Family movies are enjoyable for all ages.'},
+          {'id':'history','label':'History','desc':'History movies dramatize or recount past events and historical periods.'},
+          {'id':'horror','label':'Horror','desc':'Horror movies are designed to elicit fear and suspense.'},
+          {'id':'music','label':'Music','desc':'Music movies include musicals or films about music and musicians.'},
+          {'id':'mystery','label':'Mystery','desc':'Mystery movies center on a crime or puzzle to solve.'},
+          {'id':'romance','label':'Romance','desc':'Romance movies focus on the development of a romantic relationship.'},
+          {'id':'science-fiction','label':'Science Fiction','desc':'Science fiction uses futuristic technology, space, and speculative concepts.'},
+          {'id':'tv-movie','label':'TV Movie','desc':'TV movies are feature-length films produced for television.'},
+          {'id':'thriller','label':'Thriller','desc':'Thrillers are suspenseful films with action-packed plots and twists.'},
+          {'id':'war','label':'War','desc':'War movies depict conflicts and battles, focusing on soldiers and civilians.'},
+          {'id':'western','label':'Western','desc':'Western movies are set in the American West, focusing on frontier conflicts.'}
+      ] %}
+
+      {% for g in genres %}
+        <div class="category-checkbox">
+          <div class="top-row">
+            <input type="checkbox" id="{{ g.id }}" name="category" value="{{ g.label }}">
+            <label for="{{ g.id }}">{{ g.label }}</label>
+          </div>
+          <p class="description-p">{{ g.desc }}</p>
+        </div>
+      {% endfor %}
+
       <button class="button-style" id="saveGenres">Save Genres</button>
     </div>
+
     <script src="{{ url_for('static', filename='genres.js') }}"></script>
 </body>
 </html>
