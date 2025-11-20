@@ -6,6 +6,7 @@
     <title>Genres</title>
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='genres.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
@@ -20,15 +21,58 @@
           </a>
         </li>
         <li>
-          <a href="{{ url_for('api.trending') }}">
+          <a href="{{ url_for('api.trending_movies') }}">
             <i class='bx bx-star'></i>
             <span class="link-name">Trending</span>
           </a>
         </li>
+        <li>
+          <a href="{{ url_for('api.for_you') }}">
+            <i class='bx bx-user'></i>
+            <span class="link-name">For You</span>
+          </a>
+        </li>
       </ul>
     </div>
-    <div class="main-content">
 
+    <div class="main-content">
+      <h1 class="resize"><i class="bx bx-grid-alt"></i> Pick Your Genres</h1>
+      <hr class="hr-style">
+
+      {% set genres = [
+          {'id':'action','label':'Action','desc':'Action movies are high-octane, fast-paced sequences with stunts, chases, and thrilling confrontations.'},
+          {'id':'animation','label':'Animation','desc':'Animated movies create an illusion of movement through drawings or computer graphics.'},
+          {'id':'comedy','label':'Comedy','desc':'The comedy film emphasizes humor.'},
+          {'id':'crime','label':'Crime','desc':'Crime movies revolve around criminal activities, law enforcement, and investigations.'},
+          {'id':'documentary','label':'Documentary','desc':'Documentaries document real life for education, information, or entertainment.'},
+          {'id':'drama','label':'Drama','desc':'Drama movies tell serious stories focusing on characters and emotions.'},
+          {'id':'fantasy','label':'Fantasy','desc':'Fantasy movies feature magical or supernatural elements in imaginary worlds.'},
+          {'id':'family','label':'Family','desc':'Family movies are enjoyable for all ages.'},
+          {'id':'history','label':'History','desc':'History movies dramatize or recount past events and historical periods.'},
+          {'id':'horror','label':'Horror','desc':'Horror movies are designed to elicit fear and suspense.'},
+          {'id':'music','label':'Music','desc':'Music movies include musicals or films about music and musicians.'},
+          {'id':'mystery','label':'Mystery','desc':'Mystery movies center on a crime or puzzle to solve.'},
+          {'id':'romance','label':'Romance','desc':'Romance movies focus on the development of a romantic relationship.'},
+          {'id':'science-fiction','label':'Science Fiction','desc':'Science fiction uses futuristic technology, space, and speculative concepts.'},
+          {'id':'tv-movie','label':'TV Movie','desc':'TV movies are feature-length films produced for television.'},
+          {'id':'thriller','label':'Thriller','desc':'Thrillers are suspenseful films with action-packed plots and twists.'},
+          {'id':'war','label':'War','desc':'War movies depict conflicts and battles, focusing on soldiers and civilians.'},
+          {'id':'western','label':'Western','desc':'Western movies are set in the American West, focusing on frontier conflicts.'}
+      ] %}
+
+      {% for g in genres %}
+        <div class="category-checkbox">
+          <div class="top-row">
+            <input type="checkbox" id="{{ g.id }}" name="category" value="{{ g.label }}">
+            <label for="{{ g.id }}">{{ g.label }}</label>
+          </div>
+          <p class="description-p">{{ g.desc }}</p>
+        </div>
+      {% endfor %}
+
+      <button class="button-style" id="saveGenres">Save Genres</button>
     </div>
+
+    <script src="{{ url_for('static', filename='genres.js') }}"></script>
 </body>
 </html>

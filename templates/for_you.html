@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trending Movies - Movie Picker</title>
+    <title>For You - Movie Picker</title>
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
 </head>
@@ -21,45 +21,38 @@
             </li>
             <li>
                 <a href="{{ url_for('api.genres') }}">
-                    <i class='bx bx-grid-alt'></i>
+                    <i class="bx bx-grid-alt"></i>
                     <span class="link-name">Genres</span>
                 </a>
             </li>
             <li>
-                <a href="{{ url_for('api.for_you') }}">
-                    <i class='bx bx-user'></i>
-                    <span class="link-name">For You</span>
+                <a href="{{ url_for('api.trending_movies') }}">
+                    <i class='bx bx-star'></i>
+                    <span class="link-name">Trending</span>
                 </a>
             </li>
         </ul>
     </div>
 
     <div class="main-content">
-        <h1>Trending Movies</h1>
+        <h1><i class="bx bx-user"></i> For You</h1>
         <hr class="hr-style">
 
         {% if movies %}
             {% for movie in movies %}
-                <div style="margin-bottom: 50px;">
-                    <div>
-                        <h2 style="margin-bottom: 15px;">{{ movie.title }}</h2>
-                        <p style="margin-bottom: 15px;"><em>Release Date: {{ movie.release_date }}</em></p>
-                        <p style="margin-bottom: 15px;"><strong>Overview</strong>: {{ movie.overview }}</p>
-                    </div>
+                <div class="movie-card" style="margin-bottom: 30px;">
+                    <h2>{{ movie.title }}</h2>
+                    <p><strong>Overview</strong>: {{ movie.overview }}</p>
                     {% if movie.poster_path %}
-                        <div>
-                            <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }} Poster">
-                        </div>
+                        <img src="https://image.tmdb.org/t/p/w200{{ movie.poster_path }}" alt="{{ movie.title }} poster">
                     {% else %}
                         <p>No poster available</p>
                     {% endif %}
                 </div>
             {% endfor %}
         {% else %}
-            <p>No trending movies found.</p>
+            <p>No movies found for your selected genres.</p>
         {% endif %}
     </div>
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
