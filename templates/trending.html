@@ -44,6 +44,11 @@
                     <div>
                         <h2 style="margin-bottom: 15px;">{{ movie.title }}</h2>
                         <p style="margin-bottom: 15px;"><em>Release Date: {{ movie.release_date }}</em></p>
+                        {% if movie.rating %}
+                            <p style="margin-bottom: 15px;"><strong>Rating: {{ movie.rating }}</strong></p>
+                        {% else %}
+                            <p style="margin-bottom: 15px;"><strong>Rating: Not Rated</strong></p>
+                        {% endif %}
                         <p style="margin-bottom: 15px;"><strong>Overview</strong>: {{ movie.overview }}</p>
                     </div>
                     {% if movie.poster_path %}
