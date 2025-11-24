@@ -15,8 +15,11 @@ def index():
     movie_name = q.get("movie", "Unknown movie")
 
     quote = MovieQuote(quote=quote_text, movie=movie_name)
-    db.session.add(quote)
-    db.session.commit()
+    
+    existing = MovieQuote.query.filter_by(quote=quote_text).first()
+    if not existing:
+        db.session.add(quote)
+        db.session.commit()
 
     return render_template("index.html", quote=quote_text, movie=movie_name)
 
