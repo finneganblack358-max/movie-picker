@@ -114,3 +114,7 @@ def for_you():
         movies = []
 
     return render_template("for_you.html", movies=movies)
+
+@api.route("/watch_later")
+def watch_later():
+    return render_template("watch_later.html")
