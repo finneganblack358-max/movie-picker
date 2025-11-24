@@ -36,18 +36,39 @@
     <div class="main-content">
       <h1 class="resize"><i class="bx bx-home"></i> Home</h1>
       <hr class="hr-style">
-      <h2 class="resize">Welcome!</h2>
-      <p style="margin-top: 15px; margin-bottom: 15px;">
-        Welcome to <strong>Movie Picker</strong>, a simple and intuitive place where you can quickly discover films suited for family nights, friendly hangouts, or solo evenings when you just want something enjoyable and easy to watch. 
-        This application is designed to cut through the endless scrolling experience by helping you focus on what actually matters: finding a movie that matches your mood, your taste, and the moment you’re in.
-      </p>
-      <p style="margin-top: 3px; margin-bottom: 15px;">
-        As you navigate the interface, you’ll find that everything is organized to keep the experience clear, minimal, and easy on the eyes, allowing you to move from browsing to selecting without unnecessary clutter slowing you down. 
-        The layout is built to guide you naturally, using straightforward wording and a responsive structure so you always know where you are and what to do next as you explore new titles.
-      </p>
-      <p style="margin-top: 3px; margin-bottom: 3px;">
-        To begin your search, look at the sidebar on the left and select Genres, which will open a tailored collection of categories designed to help you filter movies with accuracy and confidence, giving you a curated starting point that leads into smooth, detailed pages for each genre. 
-        Enjoy the process, enjoy the discovery, and let the interface carry you from curiosity to your next great movie.</p>
+      <div class="container">
+        <h2 class="resize">Welcome!</h2>
+        <p style="margin-top: 15px; margin-bottom: 15px;">
+          Welcome to <strong>Movie Picker</strong>, a simple and intuitive place where you can quickly discover films suited for family nights, friendly hangouts, or solo evenings when you just want something enjoyable and easy to watch. 
+          This application is designed to cut through the endless scrolling experience by helping you focus on what actually matters: finding a movie that matches your mood, your taste, and the moment you’re in.
+        </p>
+        <p style="margin-top: 3px; margin-bottom: 15px;">
+          To begin your search, look at the sidebar on the left and select Genres, which will open a tailored collection of categories designed to help you filter movies with accuracy and confidence, giving you a curated starting point that leads into smooth, detailed pages for each genre. 
+          Enjoy the process, enjoy the discovery, and let the interface carry you from curiosity to your next great movie.
+        </p>
+      </div>
+      <div class="container">
+        <h2 class="resize">Random quote!</h2>
+        <div class="quote-container">
+          <h3>{{ quote }}</h3>
+          {% if movie %}
+            <p>- {{ movie }}</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="container">
+        <h2 class="resize">About Us!</h2>
+        <p style="margin-top: 15px; margin-bottom: 15px">This application is brought to you by Finnegan Black and Yash Patel, both 8th graders at Southeast Bulloch Middle School. As young software engineers both of us persue to bring enjoyable movies to you.</p>
+      </div>
+      <div class="container">
+        <h2 class="resize">Contact!</h2>
+        <hr class="hr-style">
+        <h3>Gmail</h3>
+        <a class="link-style" href="mailto:finneganblack358@gmail.com" target="_blank">Finnegan</a>
+        <a class="link-style" href="#" target="_blank">Yash</a>
+        <h3>Github</h3>
+        <a class="link-style" href="https://github.com/finneganblack358-max" target="_blank">Finnegan</a>
+        <a class="link-style" href="https://github.com/yashyyashthe1st-max" target="_blank">Yash</a>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

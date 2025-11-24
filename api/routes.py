@@ -1,12 +1,24 @@
 from flask import Blueprint, jsonify, render_template, current_app, request, redirect, session, url_for
 import concurrent.futures
 import requests
+from moviequote_generator.core import MovieQuotes
+from .models import MovieQuote, db
 
 api = Blueprint('api', __name__)
 
 @api.route("/")
 def index():
-    return render_template("index.html")
+    quotes = MovieQuotes()
+    q = quotes.get_random_quote()
+
+    quote_text = q.get("quote", "No quote")
+    movie_name = q.get("movie", "Unknown movie")
+
+    quote = MovieQuote(quote=quote_text, movie=movie_name)
+    db.session.add(quote)
+    db.session.commit()
+
+    return render_template("index.html", quote=quote_text, movie=movie_name)
 
 @api.route("/genres")
 def genres():
@@ -76,8 +88,8 @@ def for_you():
         "Music": 10402,
         "Mystery": 9648,
         "Romance": 10749,
-        "Science-Fiction": 878,
-        "TV-Movie": 10770,
+        "Science Fiction": 878,
+        "TV Movie": 10770,
         "Thriller": 53,
         "War": 10752,
         "Western": 37
