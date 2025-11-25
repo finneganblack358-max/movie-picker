@@ -73,6 +73,7 @@ def save_genres():
 @api.route("/for_you")
 def for_you():
     genres = session.get('selected_genres', [])
+    watch_later = session.get('watch_later', [])
 
     if not genres:
         return redirect(url_for('api.genres'))
@@ -113,19 +114,34 @@ def for_you():
     except requests.RequestException:
         movies = []
 
-    return render_template("for_you.html", movies=movies)
+    return render_template("for_you.html", movies=movies, watch_later=watch_later)
 
 @api.route("/watch_later")
 def watch_later():
     movies = session.get('watch_later', [])
     return render_template("watch_later.html", movies=movies)
 
-@api.route("/save-watch-later", methods=["POST"])
-def save_watch_later():
-    data = request.get_json()
+@api.route("/get-watch-later")
+def get_watch_later():
+    movies = session.get("watch_later", [])
+    return jsonify({"movies": movies})
 
-    if not data:
-        return jsonify({"error": "Invalid JSON"}), 400
+@api.route("/toggle-watch-later", methods=["POST"])
+def toggle_watch_later():
+    data = request.json
+    title = data.get("title")
+    poster_path = data.get("poster_path")
 
-    session["watch_later"] = data.get("movies", [])
-    return jsonify({"message": "OK"}), 200
+    if "watch_later" not in session:
+        session["watch_later"] = []
+
+    existing = next((m for m in session["watch_later"] if m["title"] == title), None)
+    if existing:
+        session["watch_later"] = [m for m in session["watch_later"] if m["title"] != title]
+        action = "removed"
+    else:
+        session["watch_later"].append({"title": title, "poster_path": poster_path})
+        action = "added"
+
+    session.modified = True
+    return jsonify({"message": "saved!", "action": action})

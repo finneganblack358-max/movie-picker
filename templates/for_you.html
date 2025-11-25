@@ -46,7 +46,7 @@
 
         {% if movies %}
             {% for movie in movies %}
-                <div class="movie-card" data-title="{{ movie.title }}" style="margin-bottom: 30px;">
+                <div class="movie-card" data-title="{{ movie.title }}" data-poster="{{ movie.poster_path }}" style="margin-bottom: 30px;">
                     <h2>{{ movie.title }}</h2>
                     <p><strong>Overview</strong>: {{ movie.overview }}</p>
 
@@ -56,7 +56,9 @@
                         <p>No poster available</p>
                     {% endif %}
 
-                    <button class="watch-later button-style">Watch Later</button>
+                    <button class="watch-later button-style">
+                        Watch Later
+                    </button>
                 </div>
             {% endfor %}
         {% else %}

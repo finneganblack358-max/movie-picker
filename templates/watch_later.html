@@ -40,14 +40,22 @@
       </ul>
     </div>
     <div class="main-content">
+      <h1><i class="bx bx-time"></i> Watch Later</h1>
+      <hr class="hr-style">
+
       {% if movies %}
-        <ul>
-          {% for title in movies %}
-            <li>{{ title }}</li>
+          {% for movie in movies %}
+              <div class="movie-card">
+                <h2>{{ movie.title }}</h2>
+                {% if movie.poster_path %}
+                    <img src="https://image.tmdb.org/t/p/w200{{ movie.poster_path }}" alt="{{ movie.title }} poster">
+                {% else %}
+                    <p>No poster available</p>
+                {% endif %}
+              </div>
           {% endfor %}
-        </ul>
       {% else %}
-          <p>No movies saved for later.</p>
+          <p>No movies in Watch Later.</p>
       {% endif %}
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
