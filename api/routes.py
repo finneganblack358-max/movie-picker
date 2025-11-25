@@ -117,4 +117,15 @@ def for_you():
 
 @api.route("/watch_later")
 def watch_later():
-    return render_template("watch_later.html")
+    movies = session.get('watch_later', [])
+    return render_template("watch_later.html", movies=movies)
+
+@api.route("/save-watch-later", methods=["POST"])
+def save_watch_later():
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"error": "Invalid JSON"}), 400
+
+    session["watch_later"] = data.get("movies", [])
+    return jsonify({"message": "OK"}), 200

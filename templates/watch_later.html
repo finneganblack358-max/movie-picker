@@ -40,7 +40,15 @@
       </ul>
     </div>
     <div class="main-content">
-      
+      {% if movies %}
+        <ul>
+          {% for title in movies %}
+            <li>{{ title }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+          <p>No movies saved for later.</p>
+      {% endif %}
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
