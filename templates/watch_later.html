@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Picker</title>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+      <div class="logo">
+        <h2>Movie Picker</h2>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="{{ url_for('api.index') }}">
+            <i class="bx bx-home"></i>
+            <span class="link-name">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ url_for('api.genres') }}">
+            <i class="bx bx-grid-alt"></i>
+            <span class="link-name">Genres</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ url_for('api.trending_movies') }}">
+            <i class='bx bx-star'></i>
+            <span class="link-name">Trending</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ url_for('api.for_you') }}">
+            <i class='bx bx-user'></i>
+            <span class="link-name">For You</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <h1><i class="bx bx-time"></i> Watch Later</h1>
+      <hr class="hr-style">
+
+      {% if movies %}
+          {% for movie in movies %}
+              <div class="movie-card">
+                <h2>{{ movie.title }}</h2>
+                {% if movie.poster_path %}
+                    <img src="https://image.tmdb.org/t/p/w200{{ movie.poster_path }}" alt="{{ movie.title }} poster">
+                {% else %}
+                    <p>No poster available</p>
+                {% endif %}
+              </div>
+          {% endfor %}
+      {% else %}
+          <p>No movies in Watch Later.</p>
+      {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

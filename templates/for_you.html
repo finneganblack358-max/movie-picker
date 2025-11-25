@@ -31,6 +31,12 @@
                     <span class="link-name">Trending</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ url_for('api.watch_later') }}">
+                    <i class='bx bx-time'></i>
+                    <span class="link-name">Watch Later</span>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -40,19 +46,26 @@
 
         {% if movies %}
             {% for movie in movies %}
-                <div class="movie-card" style="margin-bottom: 30px;">
+                <div class="movie-card" data-title="{{ movie.title }}" data-poster="{{ movie.poster_path }}" style="margin-bottom: 30px;">
                     <h2>{{ movie.title }}</h2>
                     <p><strong>Overview</strong>: {{ movie.overview }}</p>
+
                     {% if movie.poster_path %}
                         <img src="https://image.tmdb.org/t/p/w200{{ movie.poster_path }}" alt="{{ movie.title }} poster">
                     {% else %}
                         <p>No poster available</p>
                     {% endif %}
+
+                    <button class="watch-later button-style">
+                        Watch Later
+                    </button>
                 </div>
             {% endfor %}
         {% else %}
             <p>No movies found for your selected genres.</p>
         {% endif %}
     </div>
+
+    <script src="{{ url_for('static', filename='watch_later.js') }}"></script>
 </body>
 </html>
