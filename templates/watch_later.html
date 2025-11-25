@@ -42,22 +42,24 @@
     <div class="main-content">
       <h1><i class="bx bx-time"></i> Watch Later</h1>
       <hr class="hr-style">
-
       {% if movies %}
+          <button class="button-style" onclick="resetAll()">Reset All</button>
           {% for movie in movies %}
-              <div class="movie-card">
+              <div class="movie-card" data-title="{{ movie.title }}">
                 <h2>{{ movie.title }}</h2>
                 {% if movie.poster_path %}
                     <img src="https://image.tmdb.org/t/p/w200{{ movie.poster_path }}" alt="{{ movie.title }} poster">
                 {% else %}
                     <p>No poster available</p>
                 {% endif %}
+                <button class="button-style" onclick="deleteMovie(this)">Delete</button>
+                <hr class="hr-style">
               </div>
           {% endfor %}
       {% else %}
           <p>No movies in Watch Later.</p>
       {% endif %}
     </div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='watch_later.js') }}"></script>
 </body>
 </html>

@@ -43,3 +43,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function deleteMovie(button) {
+    const title = button.closest('.movie-card').getAttribute('data-title');
+    
+    fetch('/delete-from-watch-later', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: title })
+    })
+    .then(res => res.json())
+    .then(data => {
+        window.location.href = '/watch_later';
+    })
+    .catch(err => console.error("Error deleting movie:", err));
+}
+
+function resetAll() {
+    if (confirm('Are you sure you want to delete all movies from Watch Later?')) {
+        fetch('/reset-watch-later', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" }
+        })
+        .then(res => res.json())
+        .then(data => {
+            window.location.href = '/watch_later';
+        })
+        .catch(err => console.error("Error resetting watch later:", err));
+    }
+}

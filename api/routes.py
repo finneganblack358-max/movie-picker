@@ -145,3 +145,20 @@ def toggle_watch_later():
 
     session.modified = True
     return jsonify({"message": "saved!", "action": action})
+
+@api.route("/delete-from-watch-later", methods=["POST"])
+def delete_from_watch_later():
+    data = request.json
+    title = data.get("title")
+
+    if "watch_later" in session:
+        session["watch_later"] = [m for m in session["watch_later"] if m["title"] != title]
+        session.modified = True
+
+    return jsonify({"message": "deleted!"})
+
+@api.route("/reset-watch-later", methods=["POST"])
+def reset_watch_later():
+    session['watch_later'] = []
+    session.modified = True
+    return jsonify({"message": "watch later cleared!"})
